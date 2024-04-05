@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watanabe Tsuyuko's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Watanabe Tsuyuko</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="gallery">
+            <h2>Portfolio</h2>
+            <div class="grid">
+                <!-- Example Artwork -->
+                <div class="artwork" data-artwork="Artwork1" data-title="In and Out" data-details="Acrylic on Canvas, 50x70cm, 2022" data-fullsize-url="paintings/mimi.jpg" onclick="showArtworkDetails('Artwork1')">
+                    <img src="paintings/mimi.jpg" alt="In and Out">
+                </div>     
+
+                <div class="artwork" data-artwork="Artwork2" data-title="Untitled" data-details="2022" data-fullsize-url="paintings/3.PNG" onclick="showArtworkDetails('Artwork2')">
+                    <img src="paintings/3.PNG" alt="Untitled">
+                </div> 
+                                 
+                <div class="artwork" data-artwork="Artwork3" data-title="Thorns" data-details="Acrylic on Panel, 33.3x24.2cm, 2023" data-fullsize-url="paintings/Thorns.jpg" onclick="showArtworkDetails('Artwork3')">
+                    <img src="paintings/Thorns.jpg" alt="In and Out">
+                </div>                            
+
+
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Watanabe Tsuyuko</p>
+    </footer>
+    <!-- Modal for displaying artwork details -->
+<div id="artworkModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
