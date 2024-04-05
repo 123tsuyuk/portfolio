@@ -106,7 +106,7 @@ main h2{
   }
   
   .artwork img {
-    width: fit-content;
+    width: auto;
     height: 30vh;
     display: block;
     align-self: center;
@@ -215,10 +215,18 @@ footer {
     cursor: pointer;
   }
   
-@media (max-width: 768px) {
+@media (max-aspect-ratio: 768/1024) {
     .grid {
         grid-template-columns: 1fr;
     }
+    .artwork img {
+        width: 80vw;
+        height: auto;
+        display: block;
+        align-self: center;
+        margin: auto;
+        border-radius: 8px; /* Keep the rounded corners */
+      }
 }
 
 @media (max-width: 450px){
@@ -232,6 +240,16 @@ footer {
       }
 }
 
+@media (max-aspect-ratio: 280/653) {
+    .artwork img{
+        width: 70vw;
+        height: auto;
+        display: block;
+        align-self: center;
+        margin: 0;
+        border-radius: 8px; /* Keep the rounded corners */
+      }
+}
 
 .biography h2, .exhibitions h2 {
     text-transform: uppercase;
