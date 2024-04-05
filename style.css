@@ -174,12 +174,13 @@ footer {
   }
   
   /* Modal Content (Image) */
-  .modal-content {
+ .modal-content {
     margin: auto;
     display: block;
-    height: 80%;
-    width:auto;
+    height: auto;
+    width: 80%;
   }
+  
   
   /* Caption of Modal Image */
   #caption {
