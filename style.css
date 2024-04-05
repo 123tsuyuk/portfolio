@@ -174,13 +174,12 @@ footer {
   }
   
   /* Modal Content (Image) */
- .modal-content {
+  .modal-content {
     margin: auto;
     display: block;
     height: auto;
     width: 80%;
   }
-  
   
   /* Caption of Modal Image */
   #caption {
@@ -216,4 +215,47 @@ footer {
     .grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+.biography h2, .exhibitions h2 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    opacity: 0.8;
+}
+
+.biography p, .exhibitions p, .exhibitions li {
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.biography p:hover, .exhibitions p:hover, .exhibitions li:hover {
+    color: #274B69;
+}
+
+.exhibitions ul {
+    margin-left: 20px;
+}
+
+.exhibitions li {
+    list-style-type: square;
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #db6b5c;
+    opacity: 0.8;
+}
+
+footer p {
+    font-weight: bold;
+}
+
+/* Enhance the visual feedback on navigation items */
+nav ul li a:focus, nav ul li a:active {
+    color: #274B69;
+    background-color: #F3E9D2;
+    padding: 5px;
+    border-radius: 5px;
 }
