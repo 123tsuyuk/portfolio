@@ -71,6 +71,7 @@ main h2{
     text-align: center;
     border-bottom: dashed #db6b5c 1px;
     margin-bottom: 20px;
+    margin-top: 20px;
 
 }
 
@@ -84,6 +85,8 @@ main h2{
     position: relative;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    width: auto;
+    height: auto;
   }
   
   .artwork::after {
@@ -103,7 +106,7 @@ main h2{
   }
   
   .artwork img {
-    width: auto;
+    width: fit-content;
     height: 30vh;
     display: block;
     align-self: center;
@@ -218,6 +221,17 @@ footer {
     }
 }
 
+@media (max-width: 450px){
+    .artwork img {
+        width: 80vw;
+        height: auto;
+        display: block;
+        align-self: center;
+        margin: auto;
+        border-radius: 8px; /* Keep the rounded corners */
+      }
+}
+
 
 .biography h2, .exhibitions h2 {
     text-transform: uppercase;
@@ -228,6 +242,7 @@ footer {
 .biography p, .exhibitions p, .exhibitions li {
     margin-bottom: 10px;
     transition: color 0.3s ease-in-out;
+    letter-spacing: normal;
 }
 
 .biography p:hover, .exhibitions p:hover, .exhibitions li:hover {
