@@ -1,7 +1,8 @@
+
 <?php
 function sendToTelegram($chatId, $message, $token) {
     $url = "https://api.telegram.org/bot" . $token . "/sendMessage";
-    $data = array('5540085604' => $chatId, 'text' => $message);
+    $data = array('chat_id' => $chatId, 'text' => $message);
     $options = array(
         'http' => array(
             'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -15,8 +16,8 @@ function sendToTelegram($chatId, $message, $token) {
 }
 
 // Your Bot Token and Chat ID
-$token = 'Your_Telegram_Bot_Token';
-$chatId = 'Your_Personal_Chat_ID';
+$token = '7060741021:AAGSqbOTz3A2vTASIONsNQo0WEqtiwhvKfM';
+$chatId = '5540085604';
 
 // Collect data from the form
 $name = htmlspecialchars($_POST['name']);
