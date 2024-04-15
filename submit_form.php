@@ -1,41 +1,80 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = strip_tags(trim($_POST["name"]));
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $message = trim($_POST["message"]);
+require 'vendor/autoload.php';
 
-    $recaptcha_secret = "your_secret_key_here";
-    $recaptcha_response = $_POST['g-recaptcha-response'];
+use Google\Cloud\RecaptchaEnterprise\V1\RecaptchaEnterpriseServiceClient;
+use Google\Cloud\RecaptchaEnterprise\V1\Event;
+use Google\Cloud\RecaptchaEnterprise\V1\Assessment;
 
-    // Verify the CAPTCHA response
-    $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$recaptcha_response}");
-    $captcha_success = json_decode($verify);
-    if ($captcha_success->success == false) {
-        // Verification failure
-        echo "You are a robot. If not, go back and try again.";
-        exit;
+function create_assessment_and_send_email($recaptchaKey, $token, $project, $action, $emailData) {
+    $client = new RecaptchaEnterpriseServiceClient();
+    $projectName = $client->projectName($project);
+    $event = (new Event())
+        ->setSiteKey($recaptchaKey)
+        ->setToken($token);
+
+    $assessment = (new Assessment())
+        ->setEvent($event);
+
+    try {
+        $response = $client->createAssessment($projectName, $assessment);
+        if (!$response->getTokenProperties()->getValid()) {
+            throw new Exception('Invalid token.');
+        }
+        if ($response->getTokenProperties()->getAction() !== $action) {
+            throw new Exception('Action mismatch.');
+        }
+        $riskScore = $response->getRiskAnalysis()->getScore();
+        if ($riskScore < 0.5) {
+            throw new Exception('Challenge risk score too low.');
+        }
+
+        // If CAPTCHA verification passes, send the email
+        send_email($emailData);
+
+    } catch (Exception $e) {
+        echo 'Error: ' . $e->getMessage();
     }
-
-    // Email subject and content
-    $subject = "New Contact from $name";
-    $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n\n";
-    $email_content .= "Message:\n$message\n";
-
-    // Recipient email
-    $recipient = "diegoalonsojapan@gmail.com";  // Update this to correct email address
-
-    // Headers
-    $headers = "From: $name <$email>";
-
-    // Send the email
-    if (mail($recipient, $subject, $email_content, $headers)) {
-        echo "Thank You! Your message has been sent.";
-    } else {
-        echo "Oops! Something went wrong, and we couldn't send your message.";
-    }
-} else {
-    // Not a POST request
-    echo "There was a problem with your submission, please try again.";
 }
+
+function send_email($emailData) {
+    $to = 'diegoalonsojapan@gmail.com'; // where the email will send
+    $subject = 'New Contact Message from ' . $emailData['name'];
+    $message = "You have received a new message from your website contact form.\n\n";
+    $message .= "Here are the details:\n";
+    $message .= "Name: " . $emailData['name'] . "\n";
+    $message .= "Email: " . $emailData['email'] . "\n";
+    $message .= "Message:\n" . $emailData['message'] . "\n";
+
+    $headers = 'From: ' . $emailData['email'] . "\r\n";
+    $headers .= 'Reply-To: ' . $emailData['email'] . "\r\n";
+    $headers .= 'X-Mailer: PHP/' . phpversion();
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo 'Thank you for contacting us!';
+    } else {
+        throw new Exception('Failed to send email.');
+    }
+}
+
+// Collect data from form
+$name = htmlspecialchars(stripslashes(trim($_POST['name'])));
+$email = htmlspecialchars(stripslashes(trim($_POST['email'])));
+$message = htmlspecialchars(stripslashes(trim($_POST['message'])));
+$token = $_POST['g-recaptcha-response'];
+$action = 'submit'; // The action you expect from the reCAPTCHA tag
+
+$emailData = array(
+    'name' => $name,
+    'email' => $email,
+    'message' => $message
+);
+
+// Call the function
+create_assessment_and_send_email(
+    '6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta', // Replace with your site key
+    $token,
+    'watanabetsuuko-1713181021076', // Replace with your Google Cloud project ID
+    $action,
+    $emailData
+);
 ?>
