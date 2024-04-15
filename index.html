@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watanabe Tsuyuko's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logo/icon.webp" type="image/icon type">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta"></script>
 </head>
+
 <body>
     <header>
         <h1>Watanabe Tsuyuko</h1>
@@ -20,161 +24,227 @@
     <main>
         <section id="gallery">
             <h2>Works</h2>
-            </section>
-            <div class="grid">
+        </section>
+        <div class="grid">
 
-                <!-- Example Artwork -->
-                <div class="artwork" data-artwork="Artwork1" data-title="In and Out" data-details="Acrylic on Canvas, 50x70cm, 2022" data-fullsize-url="paintings/webp/mimi.webp" onclick="showArtworkDetails('Artwork1')">
-                    <img src="paintings/thumbnails/webp/mimi-thumbnail.webp" alt="In and Out" loading="lazy">
-                </div>     
-
-                <div class="artwork" data-artwork="Artwork2" data-title="Thorns" data-details="Acrylic on Panel, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/Thorns.webp" onclick="showArtworkDetails('Artwork2')">
-                    <img src="paintings/thumbnails/webp/Thorns-thumbnail.webp" alt="Thorns" loading="lazy">
-                </div>  
-                
-                <div class="artwork" data-artwork="Artwork3" data-title="Breeze1" data-details="Acrylic and Pastel on Washi, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/Breeze1.webp" onclick="showArtworkDetails('Artwork3')">
-                    <img src="paintings/thumbnails/webp/Breeze1-thumbnail.webp" alt="Breeze1" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork4" data-title="Breeze1" data-details="Acrylic and Pastel on Washi, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/Breeze2.webp" onclick="showArtworkDetails('Artwork4')">
-                    <img src="paintings/thumbnails/webp/Breeze2-thumbnail.webp" alt="Breeze2" loading="lazy">
-                </div> 
-                
-                <div class="artwork" data-artwork="Artwork5" data-title="Spring Flurry" data-details="Acrylic on Panel, 30x40cm, 2022" data-fullsize-url="paintings/webp/spring.webp" onclick="showArtworkDetails('Artwork5')">
-                    <img src="paintings/thumbnails/webp/spring-thumbnail.webp" alt="Spring Flurry" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork6" data-title="Fuente" data-details="Acrylic on Panel, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/fuente.webp" onclick="showArtworkDetails('Artwork6')">
-                    <img src="paintings/thumbnails/webp/fuente-thumbnail.webp" alt="Fuente" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork7" data-title="Untitled" data-details="Acrylic on Canvas, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/sofa.webp" onclick="showArtworkDetails('Artwork7')">
-                    <img src="paintings/thumbnails/webp/sofa-thumbnail.webp" alt="Untitled" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork8" data-title="Memory 01" data-details="Acrylic on Panel, 1167x803cm, 2023" data-fullsize-url="paintings/webp/memory01.webp" onclick="showArtworkDetails('Artwork8')">
-                    <img src="paintings/thumbnails/webp/memory01-thumbnail.webp" alt="Memory 01" loading="lazy">
-                </div>  
-
-
-                <!-- このしたの一行を点線ほしい場所に丸まるコピペ-->
-            </div><h2></h2><div class="grid">  
-
-
-
-                 <div class="artwork" data-artwork="Artwork9" data-title="Untitled" data-details="2022" data-fullsize-url="paintings/webp/3.webp" onclick="showArtworkDetails('Artwork9')">
-                    <img src="paintings/thumbnails/webp/3-thumbnail.webp" alt="Untitled" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork10" data-title="Obstacle" data-details="2833X2659px, 2022" data-fullsize-url="paintings/webp/zhangai.webp" onclick="showArtworkDetails('Artwork10')">
-                    <img src="paintings/thumbnails/webp/zhangai-thumbnail.webp" alt="Obstacle" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork11" data-title="Blind for Love" data-details="3024x3024px, 2023" data-fullsize-url="paintings/webp/blind.webp" onclick="showArtworkDetails('Artwork11')">
-                    <img src="paintings/thumbnails/webp/blind-thumbnail.webp" alt="Blind for Love" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork12" data-title="Pill Box" data-details="2842x2615px, 2022" data-fullsize-url="paintings/webp/pill.webp" onclick="showArtworkDetails('Artwork12')">
-                    <img src="paintings/thumbnails/webp/pill-thumbnail.webp" alt="Pill Box" loading="lazy">
-                </div>  
-
-            </div><h2></h2><div class="grid"> 
-
-                <div class="artwork" data-artwork="Artwork13" data-title="Posing" data-details="Pastel on Panel, 30x40cm, 2021" data-fullsize-url="paintings/webp/posing.webp" onclick="showArtworkDetails('Artwork13')">
-                    <img src="paintings/thumbnails/webp/posing-thumbnail.webp" alt="Posing" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork14" data-title="Boy in Sunglasses" data-details="Acrylic on Panel, 24x30cm, 2022" data-fullsize-url="paintings/webp/boy.webp" onclick="showArtworkDetails('Artwork14')">
-                    <img src="paintings/thumbnails/webp/boy-thumbnail.webp" alt="Boy in Sunglasses" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork15" data-title="Lovers" data-details="Oil, Pastel on Canvas, 50x70cm, 2020" data-fullsize-url="paintings/webp/lovers.webp" onclick="showArtworkDetails('Artwork15')">
-                    <img src="paintings/thumbnails/webp/lovers-thumbnail.webp" alt="Lovers" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork16" data-title="Striped Shirt" data-details="Acrylic on Panel, 30x40cm, 2021" data-fullsize-url="paintings/webp/back.webp" onclick="showArtworkDetails('Artwork16')">
-                    <img src="paintings/thumbnails/webp/back-thumbnail.webp" alt="Striped Shirt" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork17" data-title="愛" data-details="Pastel on Panel, 30x40cm, 2021" data-fullsize-url="paintings/webp/ai.webp" onclick="showArtworkDetails('Artwork17')">
-                    <img src="paintings/thumbnails/webp/ai-thumbnail.webp" alt="愛" loading="lazy">
-                </div>  
-
-                <div class="artwork" data-artwork="Artwork18" data-title="Sunflowers" data-details="Oil, Pastel on Canvas, 80x100cm, 2021" data-fullsize-url="paintings/webp/sunflower.webp" onclick="showArtworkDetails('Artwork18')">
-                    <img src="paintings/thumbnails/webp/sunflower-thumbnail.webp" alt="Sunflowers" loading="lazy">
-                </div> 
-                
-                <div class="artwork" data-artwork="Artwork19" data-title="Tablecloth of Summer" data-details="Acrylic on Panel, 30x40cm, 2020" data-fullsize-url="paintings/webp/summer.webp" onclick="showArtworkDetails('Artwork19')">
-                    <img src="paintings/thumbnails/webp/summer-thumbnail.webp" alt="Tablecloth of Summer" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork20" data-title="Tulip" data-details="Pastel on Acrylic Panel, 15x15cm, 2020" data-fullsize-url="paintings/webp/tulip.webp" onclick="showArtworkDetails('Artwork20')">
-                    <img src="paintings/thumbnails/webp/tulip-thumbnail.webp" alt="Tulip" loading="lazy">
-                </div> 
-
-            </div><h2></h2><div class="grid">  
-
-                <div class="artwork" data-artwork="Artwork21" data-title="The Way Out" data-details="Pastel on Panel, 40x50cm, 2020" data-fullsize-url="paintings/webp/out.webp" onclick="showArtworkDetails('Artwork21')">
-                    <img src="paintings/thumbnails/webp/out-thumbnail.webp" alt="The Way Out" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork22" data-title="Tropic" data-details="Pastel on Panel, 40x50cm, 2020" data-fullsize-url="paintings/webp/redai.webp" onclick="showArtworkDetails('Artwork22')">
-                    <img src="paintings/thumbnails/webp/redai-thumbnail.webp" alt="Tropic" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork23" data-title="The Gift" data-details="Pastel on Panel, 30x40cm, 2020" data-fullsize-url="paintings/webp/gift.webp" onclick="showArtworkDetails('Artwork23')">
-                    <img src="paintings/thumbnails/webp/gift-thumbnail.webp" alt="The Gift" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork24" data-title="Self III" data-details="Pastel on Panel, 40x50cm, 2020" data-fullsize-url="paintings/webp/self3.webp" onclick="showArtworkDetails('Artwork24')">
-                    <img src="paintings/thumbnails/webp/self3-thumbnail.webp" alt="Self III" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork25" data-title="New Routine" data-details="Pastel on Sandpaper, 36x42cm, 2020" data-fullsize-url="paintings/webp/washing.webp" onclick="showArtworkDetails('Artwork25')">
-                    <img src="paintings/thumbnails/webp/washing-thumbnail.webp" alt="New Routine" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork26" data-title="Self II" data-details="Pastel on Panel, 40x40cm, 2020" data-fullsize-url="paintings/webp/hands2.webp" onclick="showArtworkDetails('Artwork26')">
-                    <img src="paintings/thumbnails/webp/hands2-thumbnail.webp" alt="Self II" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork27" data-title="Untitled" data-details="Pastel on Panel, 22x30cm, 2020" data-fullsize-url="paintings/webp/jian.webp" onclick="showArtworkDetails('Artwork27')">
-                    <img src="paintings/thumbnails/webp/jian-thumbnail.webp" alt="Untitled" loading="lazy">
-                </div> 
- 
-                <div class="artwork" data-artwork="Artwork28" data-title="Self" data-details="Pastel on Sandpaper, 35x35cm, 2020" data-fullsize-url="paintings/webp/me.webp" onclick="showArtworkDetails('Artwork28')">
-                    <img src="paintings/thumbnails/webp/me-thumbnail.webp" alt="Self" loading="lazy">
-                </div> 
-
-            </div><h2></h2><div class="grid">  
-
-                <div class="artwork" data-artwork="Artwork29" data-title="silver Sea I" data-details="Resin Glue on Acrylic Panel, 15x15cm, 2020" data-fullsize-url="paintings/webp/silver1-1.webp" onclick="showArtworkDetails('Artwork29')">
-                    <img src="paintings/thumbnails/webp/silver1-1-thumbnail.webp" alt="silver Sea I" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork30" data-title="silver Sea II" data-details="Resin Glue on Acrylic Panel, 15x15cm, 2020" data-fullsize-url="paintings/webp/silver2.webp" onclick="showArtworkDetails('Artwork30')">
-                    <img src="paintings/thumbnails/webp/silver2-thumbnail.webp" alt="silver Sea II" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork31" data-title="Traces" data-details="Mixed Media, 60x60cm, 2021" data-fullsize-url="paintings/webp/Traces.webp" onclick="showArtworkDetails('Artwork31')">
-                    <img src="paintings/thumbnails/webp/Traces-thumbnail.webp" alt="Traces" loading="lazy">
-                </div> 
-
-                <div class="artwork" data-artwork="Artwork32" data-title="Exit" data-details="Mixed Media, 2021" data-fullsize-url="paintings/webp/exit.webp" onclick="showArtworkDetails('Artwork32')">
-                    <img src="paintings/thumbnails/webp/exit-thumbnail.webp" alt="Exit" loading="lazy">
-                </div> 
+            <!-- Example Artwork -->
+            <div class="artwork" data-artwork="Artwork1" data-title="In and Out"
+                data-details="Acrylic on Canvas, 50x70cm, 2022" data-fullsize-url="paintings/webp/mimi.webp"
+                onclick="showArtworkDetails('Artwork1')">
+                <img src="paintings/thumbnails/webp/mimi-thumbnail.webp" alt="In and Out" loading="lazy">
             </div>
+
+            <div class="artwork" data-artwork="Artwork2" data-title="Thorns"
+                data-details="Acrylic on Panel, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/Thorns.webp"
+                onclick="showArtworkDetails('Artwork2')">
+                <img src="paintings/thumbnails/webp/Thorns-thumbnail.webp" alt="Thorns" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork3" data-title="Breeze1"
+                data-details="Acrylic and Pastel on Washi, 33.3x24.2cm, 2023"
+                data-fullsize-url="paintings/webp/Breeze1.webp" onclick="showArtworkDetails('Artwork3')">
+                <img src="paintings/thumbnails/webp/Breeze1-thumbnail.webp" alt="Breeze1" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork4" data-title="Breeze1"
+                data-details="Acrylic and Pastel on Washi, 33.3x24.2cm, 2023"
+                data-fullsize-url="paintings/webp/Breeze2.webp" onclick="showArtworkDetails('Artwork4')">
+                <img src="paintings/thumbnails/webp/Breeze2-thumbnail.webp" alt="Breeze2" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork5" data-title="Spring Flurry"
+                data-details="Acrylic on Panel, 30x40cm, 2022" data-fullsize-url="paintings/webp/spring.webp"
+                onclick="showArtworkDetails('Artwork5')">
+                <img src="paintings/thumbnails/webp/spring-thumbnail.webp" alt="Spring Flurry" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork6" data-title="Fuente"
+                data-details="Acrylic on Panel, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/fuente.webp"
+                onclick="showArtworkDetails('Artwork6')">
+                <img src="paintings/thumbnails/webp/fuente-thumbnail.webp" alt="Fuente" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork7" data-title="Untitled"
+                data-details="Acrylic on Canvas, 33.3x24.2cm, 2023" data-fullsize-url="paintings/webp/sofa.webp"
+                onclick="showArtworkDetails('Artwork7')">
+                <img src="paintings/thumbnails/webp/sofa-thumbnail.webp" alt="Untitled" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork8" data-title="Memory 01"
+                data-details="Acrylic on Panel, 1167x803cm, 2023" data-fullsize-url="paintings/webp/memory01.webp"
+                onclick="showArtworkDetails('Artwork8')">
+                <img src="paintings/thumbnails/webp/memory01-thumbnail.webp" alt="Memory 01" loading="lazy">
+            </div>
+
+
+            <!-- このしたの一行を点線ほしい場所に丸まるコピペ-->
+        </div>
+        <h2></h2>
+        <div class="grid">
+
+
+
+            <div class="artwork" data-artwork="Artwork9" data-title="Untitled" data-details="2022"
+                data-fullsize-url="paintings/webp/3.webp" onclick="showArtworkDetails('Artwork9')">
+                <img src="paintings/thumbnails/webp/3-thumbnail.webp" alt="Untitled" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork10" data-title="Obstacle" data-details="2833X2659px, 2022"
+                data-fullsize-url="paintings/webp/zhangai.webp" onclick="showArtworkDetails('Artwork10')">
+                <img src="paintings/thumbnails/webp/zhangai-thumbnail.webp" alt="Obstacle" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork11" data-title="Blind for Love" data-details="3024x3024px, 2023"
+                data-fullsize-url="paintings/webp/blind.webp" onclick="showArtworkDetails('Artwork11')">
+                <img src="paintings/thumbnails/webp/blind-thumbnail.webp" alt="Blind for Love" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork12" data-title="Pill Box" data-details="2842x2615px, 2022"
+                data-fullsize-url="paintings/webp/pill.webp" onclick="showArtworkDetails('Artwork12')">
+                <img src="paintings/thumbnails/webp/pill-thumbnail.webp" alt="Pill Box" loading="lazy">
+            </div>
+
+        </div>
+        <h2></h2>
+        <div class="grid">
+
+            <div class="artwork" data-artwork="Artwork13" data-title="Posing"
+                data-details="Pastel on Panel, 30x40cm, 2021" data-fullsize-url="paintings/webp/posing.webp"
+                onclick="showArtworkDetails('Artwork13')">
+                <img src="paintings/thumbnails/webp/posing-thumbnail.webp" alt="Posing" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork14" data-title="Boy in Sunglasses"
+                data-details="Acrylic on Panel, 24x30cm, 2022" data-fullsize-url="paintings/webp/boy.webp"
+                onclick="showArtworkDetails('Artwork14')">
+                <img src="paintings/thumbnails/webp/boy-thumbnail.webp" alt="Boy in Sunglasses" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork15" data-title="Lovers"
+                data-details="Oil, Pastel on Canvas, 50x70cm, 2020" data-fullsize-url="paintings/webp/lovers.webp"
+                onclick="showArtworkDetails('Artwork15')">
+                <img src="paintings/thumbnails/webp/lovers-thumbnail.webp" alt="Lovers" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork16" data-title="Striped Shirt"
+                data-details="Acrylic on Panel, 30x40cm, 2021" data-fullsize-url="paintings/webp/back.webp"
+                onclick="showArtworkDetails('Artwork16')">
+                <img src="paintings/thumbnails/webp/back-thumbnail.webp" alt="Striped Shirt" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork17" data-title="愛" data-details="Pastel on Panel, 30x40cm, 2021"
+                data-fullsize-url="paintings/webp/ai.webp" onclick="showArtworkDetails('Artwork17')">
+                <img src="paintings/thumbnails/webp/ai-thumbnail.webp" alt="愛" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork18" data-title="Sunflowers"
+                data-details="Oil, Pastel on Canvas, 80x100cm, 2021" data-fullsize-url="paintings/webp/sunflower.webp"
+                onclick="showArtworkDetails('Artwork18')">
+                <img src="paintings/thumbnails/webp/sunflower-thumbnail.webp" alt="Sunflowers" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork19" data-title="Tablecloth of Summer"
+                data-details="Acrylic on Panel, 30x40cm, 2020" data-fullsize-url="paintings/webp/summer.webp"
+                onclick="showArtworkDetails('Artwork19')">
+                <img src="paintings/thumbnails/webp/summer-thumbnail.webp" alt="Tablecloth of Summer" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork20" data-title="Tulip"
+                data-details="Pastel on Acrylic Panel, 15x15cm, 2020" data-fullsize-url="paintings/webp/tulip.webp"
+                onclick="showArtworkDetails('Artwork20')">
+                <img src="paintings/thumbnails/webp/tulip-thumbnail.webp" alt="Tulip" loading="lazy">
+            </div>
+
+        </div>
+        <h2></h2>
+        <div class="grid">
+
+            <div class="artwork" data-artwork="Artwork21" data-title="The Way Out"
+                data-details="Pastel on Panel, 40x50cm, 2020" data-fullsize-url="paintings/webp/out.webp"
+                onclick="showArtworkDetails('Artwork21')">
+                <img src="paintings/thumbnails/webp/out-thumbnail.webp" alt="The Way Out" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork22" data-title="Tropic"
+                data-details="Pastel on Panel, 40x50cm, 2020" data-fullsize-url="paintings/webp/redai.webp"
+                onclick="showArtworkDetails('Artwork22')">
+                <img src="paintings/thumbnails/webp/redai-thumbnail.webp" alt="Tropic" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork23" data-title="The Gift"
+                data-details="Pastel on Panel, 30x40cm, 2020" data-fullsize-url="paintings/webp/gift.webp"
+                onclick="showArtworkDetails('Artwork23')">
+                <img src="paintings/thumbnails/webp/gift-thumbnail.webp" alt="The Gift" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork24" data-title="Self III"
+                data-details="Pastel on Panel, 40x50cm, 2020" data-fullsize-url="paintings/webp/self3.webp"
+                onclick="showArtworkDetails('Artwork24')">
+                <img src="paintings/thumbnails/webp/self3-thumbnail.webp" alt="Self III" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork25" data-title="New Routine"
+                data-details="Pastel on Sandpaper, 36x42cm, 2020" data-fullsize-url="paintings/webp/washing.webp"
+                onclick="showArtworkDetails('Artwork25')">
+                <img src="paintings/thumbnails/webp/washing-thumbnail.webp" alt="New Routine" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork26" data-title="Self II"
+                data-details="Pastel on Panel, 40x40cm, 2020" data-fullsize-url="paintings/webp/hands2.webp"
+                onclick="showArtworkDetails('Artwork26')">
+                <img src="paintings/thumbnails/webp/hands2-thumbnail.webp" alt="Self II" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork27" data-title="Untitled"
+                data-details="Pastel on Panel, 22x30cm, 2020" data-fullsize-url="paintings/webp/jian.webp"
+                onclick="showArtworkDetails('Artwork27')">
+                <img src="paintings/thumbnails/webp/jian-thumbnail.webp" alt="Untitled" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork28" data-title="Self"
+                data-details="Pastel on Sandpaper, 35x35cm, 2020" data-fullsize-url="paintings/webp/me.webp"
+                onclick="showArtworkDetails('Artwork28')">
+                <img src="paintings/thumbnails/webp/me-thumbnail.webp" alt="Self" loading="lazy">
+            </div>
+
+        </div>
+        <h2></h2>
+        <div class="grid">
+
+            <div class="artwork" data-artwork="Artwork29" data-title="silver Sea I"
+                data-details="Resin Glue on Acrylic Panel, 15x15cm, 2020"
+                data-fullsize-url="paintings/webp/silver1-1.webp" onclick="showArtworkDetails('Artwork29')">
+                <img src="paintings/thumbnails/webp/silver1-1-thumbnail.webp" alt="silver Sea I" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork30" data-title="silver Sea II"
+                data-details="Resin Glue on Acrylic Panel, 15x15cm, 2020"
+                data-fullsize-url="paintings/webp/silver2.webp" onclick="showArtworkDetails('Artwork30')">
+                <img src="paintings/thumbnails/webp/silver2-thumbnail.webp" alt="silver Sea II" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork31" data-title="Traces" data-details="Mixed Media, 60x60cm, 2021"
+                data-fullsize-url="paintings/webp/Traces.webp" onclick="showArtworkDetails('Artwork31')">
+                <img src="paintings/thumbnails/webp/Traces-thumbnail.webp" alt="Traces" loading="lazy">
+            </div>
+
+            <div class="artwork" data-artwork="Artwork32" data-title="Exit" data-details="Mixed Media, 2021"
+                data-fullsize-url="paintings/webp/exit.webp" onclick="showArtworkDetails('Artwork32')">
+                <img src="paintings/thumbnails/webp/exit-thumbnail.webp" alt="Exit" loading="lazy">
+            </div>
+        </div>
 
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <form>
+            <form method="post" action="submit_form.php"> <!-- Update action to point to your server-side script -->
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta"></div> 
                 <button type="submit">Send</button>
             </form>
         </section>
@@ -183,13 +253,21 @@
         <p>&copy; 2024 Watanabe Tsuyuko</p>
     </footer>
     <!-- Modal for displaying artwork details -->
-<div id="artworkModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="caption"></div>
-</div>
+    <div id="artworkModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
 
     <script src="script.js"></script>
+    <script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.enterprise.ready(async () => {
+            const token = await grecaptcha.enterprise.execute('6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta', {action: 'LOGIN'});
+          });
+        }
+      </script>
 </body>
-</html>
 
+</html>
