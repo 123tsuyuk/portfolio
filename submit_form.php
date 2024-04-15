@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "Message:\n$message\n";
 
     // Recipient email
-    $recipient = "diegoalonsojapan@gmail.com";  // Update this to your email
+    $recipient = "diegoalonsojapan@gmail.com";  // Update this to correct email address
 
     // Headers
     $headers = "From: $name <$email>";

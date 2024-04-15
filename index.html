@@ -7,8 +7,8 @@
     <title>Watanabe Tsuyuko's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logo/icon.webp" type="image/icon type">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta"></script>
+    <script
+        src="https://www.google.com/recaptcha/enterprise.js?render=6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta"></script>
 </head>
 
 <body>
@@ -237,15 +237,16 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <form method="post" action="submit_form.php"> <!-- Update action to point to your server-side script -->
+            <form method="post" action="submit_form.php" id="contact-form">
+                <!-- Update action to point to your server-side script -->
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
-                <div class="g-recaptcha" data-sitekey="6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta"></div> 
-                <button type="submit">Send</button>
+                <button class="g-recaptcha" data-sitekey="6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta"
+                    data-callback='onSubmit' data-action='submit'>Send</button>
             </form>
         </section>
     </main>
@@ -260,14 +261,13 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Replace the variables below. -->
     <script>
-        function onClick(e) {
-          e.preventDefault();
-          grecaptcha.enterprise.ready(async () => {
-            const token = await grecaptcha.enterprise.execute('6LclE7spAAAAAHpKHV64JUtfL-8FBeP5UxIXd0ta', {action: 'LOGIN'});
-          });
+        function onSubmit(token) {
+            document.getElementById("contact-form").submit();
         }
-      </script>
+    </script>
 </body>
 
 </html>

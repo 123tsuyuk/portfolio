@@ -241,6 +241,9 @@ footer {
 }
 
 @media (max-width: 450px){
+    main h2{
+        font-size: 30px;
+    }
     .artwork img {
         width: 80vw;
         height: auto;
