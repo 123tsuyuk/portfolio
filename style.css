@@ -35,23 +35,27 @@ header {
 
 header h1 {
     margin-bottom: 20px;
-    font-size: xx-large;
+    font-size: 2.5em; /* larger base font size */
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0; /* Reset default margin */
+    display: flex; /* Flexbox for better alignment */
+    justify-content: center; /* Center align the navigation items */
+    flex-wrap: wrap; /* Allows items to wrap in smaller screens */
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 10px 15px; /* Increased spacing for better touch targets */
 }
 
 nav ul li a {
     color: #F3E9D2;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1.2em; /* Larger font size for better readability */
 }
 
 nav ul li a:hover {
@@ -79,10 +83,14 @@ main h2{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, calc(100% / 4 - 20px)));
     gap: 20px;
+   
 }
 
 
 .artwork {
+    /*display: flex;
+    align-items: center; /* Aligns vertically center */
+    /*justify-content: center; /* Aligns horizontally center */
     position: relative;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
@@ -107,7 +115,7 @@ main h2{
   }
   
   .artwork img {
-    width: auto;
+    width: 100%;
     max-width: 100%;
     height: auto;
     max-height: 100%;
@@ -115,7 +123,7 @@ main h2{
     align-self: center;
     margin: auto;
     border-radius: 8px; /* Keep the rounded corners */
-  }
+}
   
 
 .artwork h3, .artwork p {
@@ -253,6 +261,56 @@ footer {
         border-radius: 8px; /* Keep the rounded corners */
       }
 }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* Slightly smaller font size on small devices */
+    }
+
+    nav ul li {
+        margin: 5px 10px; /* Smaller margin in small screens */
+    }
+
+    nav ul li a {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 10px; /* Smaller padding on very small screens */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block; /* Full width nav items */
+        text-align: center;
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background-color: #bcc595;
+    color: #F3E9D2;
+    padding: 20px;
+    text-align: center;
+}
+
+.biography, .exhibitions {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
 
 .biography h2, .exhibitions h2 {
     text-transform: uppercase;
@@ -261,21 +319,21 @@ footer {
 }
 
 .biography p, .exhibitions p, .exhibitions li {
-    margin-bottom: 10px;
-    transition: color 0.3s ease-in-out;
-    letter-spacing: normal;
+    margin-bottom: 20px; /* Increased for better separation */
+    padding: 10px; /* Adds padding to make each point stand out */
+    background-color: #f0e2c4; /* Subtle background to highlight each item */
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.1);
 }
 
 .biography p:hover, .exhibitions p:hover, .exhibitions li:hover {
+    background-color: #db6b5c; /* Slightly darker on hover to draw attention */
     color: #274B69;
 }
 
 .exhibitions ul {
     margin-left: 20px;
-}
-
-.exhibitions li {
-    list-style-type: square;
+    list-style-type: square; /* Ensures list style is consistently applied */
 }
 
 footer {
@@ -289,10 +347,3 @@ footer p {
     font-weight: bold;
 }
 
-/* Enhance the visual feedback on navigation items */
-nav ul li a:focus, nav ul li a:active {
-    color: #274B69;
-    background-color: #F3E9D2;
-    padding: 5px;
-    border-radius: 5px;
-}
