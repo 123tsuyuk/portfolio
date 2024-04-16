@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 
 app.post('/send-message', (req, res) => {
     const { name, email, message } = req.body;
-    const text = `New message from ${name}, Email: ${email}, Message: ${message}`;
+    const text = `你有一封來自${name}的心郵件
+     電子郵箱: ${email}
+     消息内容: ${message}`;
 
     // Prepare both requests
     const requestOne = axios.post(TELEGRAM_API, {
