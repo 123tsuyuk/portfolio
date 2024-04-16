@@ -28,7 +28,7 @@ def convert_to_webp(source_dir, target_dir, quality=90):
                 print(f"Converted and saved {new_filename} in WebP format")
 
 # Define your directories
-source_directory = "../paintings/thumbnails"
+source_directory = "../paintings"
 target_directory = os.path.join(source_directory, "webp")
 
 # Convert and save images in WebP format
