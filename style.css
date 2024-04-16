@@ -29,7 +29,7 @@ body {
 header {
     color: #F3E9D2;
     background-color: #bcc595;
-    padding: 20px 0;
+    padding-top: 48px;
     text-align: center;
 }
 
@@ -289,7 +289,8 @@ footer {
 
 @media (max-width: 480px) {
     header {
-        padding: 15px 10px; /* Smaller padding on very small screens */
+        padding: 0px 10px; /* Smaller padding on very small screens */
+        padding-top: 30px;
     }
 
     nav ul {
