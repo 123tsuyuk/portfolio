@@ -160,6 +160,8 @@ main h2{
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #db6b5c;
+    font-size: medium;
+    font-family: 'Raleway';
 }
 
 #contact button {
@@ -303,12 +305,6 @@ footer {
     }
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-}
 
 .biography, .exhibitions {
     padding: 20px;

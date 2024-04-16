@@ -1,7 +1,7 @@
 from PIL import Image
 import os
 
-def resize_images(source_dir, target_dir, size=(300, 400)):
+def resize_images(source_dir, target_dir, size=(900, 1200)):
     """
     Resize images in the specified directory and save them to a target directory with adjusted filenames.
 
@@ -23,7 +23,7 @@ def resize_images(source_dir, target_dir, size=(300, 400)):
                 
                 # Create a new filename
                 base, extension = os.path.splitext(filename)
-                new_filename = f"{base}-thumbnail{extension}"
+                new_filename = f"{base}{extension}"
                 
                 # Save the image to the target directory
                 img.save(os.path.join(target_dir, new_filename))
