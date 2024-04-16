@@ -50,3 +50,11 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+function preloadImages() {
+    artworks.forEach(artwork => {
+        const img = new Image();
+        img.src = artwork.url;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', preloadImages);

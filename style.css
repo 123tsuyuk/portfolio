@@ -272,6 +272,7 @@ footer {
     font-size: 25px;
 }
 
+
 @media (max-aspect-ratio: 768/1024) {
     .grid {
         grid-template-columns: 1fr;
