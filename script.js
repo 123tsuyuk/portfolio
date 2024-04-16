@@ -3,28 +3,45 @@ function openArtwork(artworkId) {
     // This is a placeholder for functionality you'll need to implement based on your design
     alert("Open artwork details for " + artworkId);
 }
+let currentIndex = 0; // Index of the currently displayed image
+let artworks = []; // Array to store all artwork data
 
-// Function to show the modal with details
-function showArtworkDetails(artworkId) {
+document.querySelectorAll('.artwork').forEach((item, index) => {
+    artworks.push({
+        id: item.getAttribute('data-artwork'),
+        title: item.getAttribute('data-title'),
+        details: item.getAttribute('data-details'),
+        url: item.getAttribute('data-fullsize-url')
+    });
+    item.onclick = () => showArtworkDetails(index); // Use index instead of ID
+});
+
+function showArtworkDetails(index) {
+    currentIndex = index; // Update current index
+    const artwork = artworks[index];
     var modal = document.getElementById("artworkModal");
     var modalImg = document.getElementById("modalImage");
     var captionText = document.getElementById("caption");
-    var img = document.querySelector(`[data-artwork='${artworkId}']`);
-    var title = img.getAttribute('data-title');
-    var details = img.getAttribute('data-details');
-    var fullSizeUrl = img.getAttribute('data-fullsize-url');
 
     modal.style.display = "block";
-    modalImg.src = fullSizeUrl; // Use the full-size image URL
-    captionText.innerHTML = `<strong>${title}</strong><br>${details}`;
-
-    // Function to close the modal
-    var span = document.getElementsByClassName("close")[0];
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+    modalImg.src = artwork.url;
+    captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
 }
 
+function changeImage(step) {
+    // Calculate new index
+    let newIndex = currentIndex + step;
+    if (newIndex < 0) newIndex = artworks.length - 1;
+    if (newIndex >= artworks.length) newIndex = 0;
+    showArtworkDetails(newIndex); // Show the new image
+}
+
+// Function to close the modal
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+    var modal = document.getElementById("artworkModal");
+    modal.style.display = "none";
+};
 
 // Function to close the modal if user clicks anywhere outside of the modal image
 window.onclick = function(event) {
@@ -32,4 +49,4 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
