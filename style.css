@@ -102,6 +102,7 @@ main h2{
     width: 100%; /* Ensures the artwork fills the column */
     overflow: hidden; /* Ensures nothing spills out, especially if borders are rounded */
     border-radius: 8px; /* Applies rounding here to contain the hover effect */
+    margin-bottom: 5vw;
 }
 
 .artwork::after {
@@ -130,7 +131,6 @@ main h2{
     /* align-self: center; */
     /* margin: auto; */
     border-radius: 8px; /* Keep the rounded corners */
-    margin-bottom: 5vw;
 }
   
 
