@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 app.post('/send-message', (req, res) => {
     const { name, email, message } = req.body;
-    const text = `你有一封來自${name}的心郵件
+    const text = `你有一封來自${name}的新郵件
      電子郵箱: ${email}
      消息内容: ${message}`;
 
