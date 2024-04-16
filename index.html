@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watanabe Tsuyuko's Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo/icon.webp" type="image/icon type">
-    <script>
-        function onSubmit(token) {
-            document.getElementById("contact-form").submit();
-        }
-    </script>
+    <link rel="icon" href="logo/icon.png" type="image/icon type">
 </head>
 
 <body>
@@ -20,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -236,36 +231,6 @@
                 <img src="paintings/thumbnails/webp/exit.webp" alt="Exit" loading="lazy">
             </div>
         </div>
-
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <form id="contactForm">
-                <input type="text" id="name" name="name" placeholder="Your Name" required><br>
-                <input type="email" id="email" name="email" placeholder="Your Email" required><br>
-                <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
-                <button type="submit">Send</button>
-            </form>
-        
-            <script>
-                document.getElementById('contactForm').addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
-        
-                    fetch('https://portfolio-krn3.onrender.com/send-message', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ name, email, message })
-                    })
-                    .then(response => response.text())
-                    .then(data => alert('Form submitted successfully!'))
-                    .catch(error => console.error('Error:', error));
-                });
-            </script>
 
         </section>
     </main>

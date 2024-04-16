@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo/icon.png" type="image/icon type">
+
+</head>
+
+<body>
+    <header>
+        <h1>Contact me</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="contact">
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                fetch('https://portfolio-krn3.onrender.com/send-message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, message })
+                })
+                    .then(response => response.text())
+                    .then(data => alert('Form submitted successfully!'))
+                    .catch(error => console.error('Error:', error));
+            });
+        </script>
+
+    </section>
+
+</body>
