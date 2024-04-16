@@ -269,7 +269,7 @@ footer {
 
 @media (max-aspect-ratio: 768/1024) {
     .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
     }
     .artwork img {
         width: 80vw;
@@ -289,7 +289,6 @@ footer {
         height: auto;
         display: block;
         align-self: center;
-        margin: auto;
         border-radius: 8px; /* Keep the rounded corners */
       }
 }
@@ -389,5 +388,5 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    .grid { column-count: 1; }
+    .grid { column-count: 2; }
 }
