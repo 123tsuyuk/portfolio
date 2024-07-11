@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadImages();
 });
 const backgroundDetail = document.getElementById("modal-content");
-    const img = div.querySelector("img");
+    const img = backgroundDetail.querySelector("img");
     function loaded() {
         // show img
         div.classList.add("loaded");
