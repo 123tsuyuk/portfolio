@@ -126,8 +126,18 @@ main h2{
     background-color: rgb(255, 255, 255 ,0.3);
 }
 
+.artwork.loaded::before{
+    content: none;
+}
+
 @keyframes pulse{
     0%{
+        background-color: rgb(255, 255, 255 ,0.0);
+    }
+    50%{
+        background-color: rgb(255, 255, 255 ,0.3);
+    }
+    100%{
         background-color: rgb(255, 255, 255 ,0.0);
     }
 }
