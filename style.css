@@ -106,6 +106,8 @@ main h2{
     overflow: hidden; /* Ensures nothing spills out, especially if borders are rounded */
     border-radius: 8px; /* Applies rounding here to contain the hover effect */
     margin-bottom: 5vw;
+    background-size: cover;
+    background-position: center;
 }
 
 .artwork::after {
@@ -134,6 +136,8 @@ main h2{
     /* align-self: center; */
     /* margin: auto; */
     border-radius: 8px; /* Keep the rounded corners */
+    object-position: center;
+    object-fit: cover;
 }
   
 
