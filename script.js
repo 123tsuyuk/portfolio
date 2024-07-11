@@ -25,10 +25,9 @@ function showArtworkDetails(index) {
     var captionText = document.getElementById("caption");
 
     // Set the background image of the modal to the thumbnail initially
-    modalImg.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
-    modalImg.style.backgroundSize = 'cover';
-    modalImg.style.backgroundPosition = 'center';
-    modalImg.style.display = 'none'; // Hide the img tag initially
+    modal.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
+    modal.style.backgroundSize = 'cover';
+    modal.style.backgroundPosition = 'center';
 
     modal.style.display = "block";
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
@@ -37,8 +36,8 @@ function showArtworkDetails(index) {
     const fullsizeImg = new Image();
     fullsizeImg.onload = () => {
         modalImg.src = artwork.fullsizeUrl;
+        modal.style.backgroundImage = 'none'; // Remove the background image
         modalImg.style.display = 'block'; // Show the img tag once the full-size image is loaded
-        modalImg.style.backgroundImage = 'none'; // Remove the background image
     };
     fullsizeImg.src = artwork.fullsizeUrl;
 }
@@ -56,6 +55,7 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     var modal = document.getElementById("artworkModal");
     modal.style.display = "none";
+    document.getElementById("modalImage").style.display = 'none'; // Hide the img tag when the modal is closed
 };
 
 // Function to close the modal if user clicks anywhere outside of the modal image
@@ -63,6 +63,7 @@ window.onclick = function(event) {
     var modal = document.getElementById("artworkModal");
     if (event.target == modal) {
         modal.style.display = "none";
+        document.getElementById("modalImage").style.display = 'none'; // Hide the img tag when the modal is closed
     }
 };
 
