@@ -25,27 +25,22 @@ function showArtworkDetails(index) {
     var captionText = document.getElementById("caption");
 
     // Set the background image of the modal to the thumbnail initially
-    modal.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
-    modal.style.backgroundSize = 'cover';
-    modal.style.backgroundPosition = 'center';
+    modalImg.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
+    modalImg.style.backgroundSize = 'cover';
+    modalImg.style.backgroundPosition = 'center';
 
     modal.style.display = "block";
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
-
-    // Show the loading animation
-    modalImg.style.display = 'none';
-    modal.classList.remove('loaded');
-    modal.classList.add('loading');
 
     // Load the full-size image
     const fullsizeImg = new Image();
     fullsizeImg.onload = () => {
         modalImg.src = artwork.fullsizeUrl;
-        modal.classList.remove('loading');
-        modal.classList.add('loaded');
-        modalImg.style.display = 'block'; // Show the img tag once the full-size image is loaded
+        modalImg.style.backgroundImage = 'none'; // Remove the background image
+        modalImg.classList.remove('loading'); // Remove loading class
     };
     fullsizeImg.src = artwork.fullsizeUrl;
+    modalImg.classList.add('loading'); // Add loading class
 }
 
 function changeImage(step) {
@@ -75,7 +70,7 @@ window.onclick = function(event) {
 
 function preloadImages() {
     let index = 0;
-    const loadImage = () => {
+    const loadImages = () => {
         if (index < artworks.length) {
             const artwork = artworks[index];
             const img = new Image();
@@ -83,12 +78,12 @@ function preloadImages() {
                 console.log(`${artwork.title} loaded`);
                 document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
                 index++;
-                loadImage(); // Load the next image after the current one is loaded
+                loadImages(); // Load the next image after the current one is loaded
             };
             img.src = artwork.thumbnailUrl;
         }
     };
-    loadImage();
+    loadImages();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
