@@ -59,8 +59,8 @@ function preloadBackgroundImages() {
             img.onload = () => {
                 console.log(`Background ${artwork.title} loaded`);
                 const artworkDiv = document.querySelector(`.artwork[data-artwork="${artwork.id}"]`);
-                artworkDiv.classList.add("background-loaded");
                 artworkDiv.style.backgroundImage = `url(${artwork.backgroundUrl})`;
+                artworkDiv.classList.add("background-loaded");
                 index++;
                 loadBackgroundImage(); // Load the next background image after the current one is loaded
             };
@@ -74,21 +74,22 @@ function preloadBackgroundImages() {
 }
 
 function lazyLoadThumbnails() {
-    document.querySelectorAll('.artwork img').forEach((img, index) => {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    img.src = img.getAttribute('data-src'); // Set the actual src attribute
-                    img.onload = () => {
-                        img.removeAttribute('data-src'); // Remove data-src after loading
-                        img.parentElement.classList.add('loaded');
-                        img.parentElement.style.backgroundImage = 'none'; // Remove background image
-                    };
-                    observer.unobserve(img); // Stop observing after loading
-                }
-            });
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.getAttribute('data-src'); // Set the actual src attribute
+                img.onload = () => {
+                    img.removeAttribute('data-src'); // Remove data-src after loading
+                    img.parentElement.classList.add('loaded');
+                    img.parentElement.style.backgroundImage = 'none'; // Remove background image
+                };
+                observer.unobserve(img); // Stop observing after loading
+            }
         });
+    });
 
+    document.querySelectorAll('.artwork img').forEach(img => {
         observer.observe(img); // Start observing each thumbnail
     });
 }
