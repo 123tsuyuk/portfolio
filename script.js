@@ -50,54 +50,41 @@ window.onclick = function(event) {
     }
 };
 
-function preloadBackgroundImages() {
+function preloadImages() {
     let index = 0;
-    const loadBackgroundImage = () => {
+    const loadImage = () => {
         if (index < artworks.length) {
             const artwork = artworks[index];
             const img = new Image();
             img.onload = () => {
-                console.log(`Background ${artwork.title} loaded`);
-                const artworkDiv = document.querySelector(`.artwork[data-artwork="${artwork.id}"]`);
-                artworkDiv.style.backgroundImage = `url(${artwork.backgroundUrl})`;
-                artworkDiv.classList.add("background-loaded");
+                console.log(`${artwork.title} loaded`);
+                document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
                 index++;
-                loadBackgroundImage(); // Load the next background image after the current one is loaded
+                loadImage(); // Load the next image after the current one is loaded
             };
-            img.src = artwork.backgroundUrl;
-        } else {
-            // Start lazy loading thumbnails after all background images are loaded
-            lazyLoadThumbnails();
+            img.src = artwork.url;
         }
     };
-    loadBackgroundImage();
-}
-
-function lazyLoadThumbnails() {
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.getAttribute('data-src'); // Set the actual src attribute
-                img.onload = () => {
-                    img.removeAttribute('data-src'); // Remove data-src after loading
-                    img.parentElement.classList.add('loaded');
-                    img.parentElement.style.backgroundImage = 'none'; // Remove background image
-                };
-                observer.unobserve(img); // Stop observing after loading
-            }
-        });
-    });
-
-    document.querySelectorAll('.artwork img').forEach(img => {
-        observer.observe(img); // Start observing each thumbnail
-    });
+    loadImage();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.artwork img').forEach(img => {
-        img.setAttribute('data-src', img.src);
-        img.src = ''; // Remove src to trigger lazy loading later
-    });
-    preloadBackgroundImages();
+    preloadImages();
+});
+
+const blurDivs = document.querySelectorAll(".artwork");
+blurDivs.forEach(div => {
+    const img = div.querySelector("img");
+    function loaded() {
+        // show img
+        div.classList.add("loaded");
+        // remove background image
+        div.style.backgroundImage = 'none';
+    }
+
+    if (img.complete) {
+        loaded();
+    } else {
+        img.addEventListener("load", loaded);
+    }
 });

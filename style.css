@@ -109,14 +109,23 @@ main h2{
     background-size: cover;
     background-position: center;
 }
+.artwork img {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    /* align-self: center; */
+    /* margin: auto; */
+    border-radius: 8px; /* Keep the rounded corners */
+    object-position: center;
+    object-fit: cover;
+}
 
 .artwork.loaded > img{
     opacity: 1;
-}
-
-.artwork > img{
-    opacity: 0;
-    transition: opacity 200ms ease-in-out;
 }
 
 .artwork::before{
@@ -155,20 +164,6 @@ main h2{
 
 .artwork:hover::after {
     background: rgba(0, 0, 0, 0.2); /* Visible only on hover */
-}
-
-  
-  .artwork img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: block;
-    /* align-self: center; */
-    /* margin: auto; */
-    border-radius: 8px; /* Keep the rounded corners */
-    object-position: center;
-    object-fit: cover;
 }
   
 
