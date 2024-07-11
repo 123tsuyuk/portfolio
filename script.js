@@ -6,12 +6,13 @@ let currentIndex = 0; // Index of the currently displayed image
 let artworks = []; // Array to store all artwork data
 
 document.querySelectorAll('.artwork').forEach((item, index) => {
+    const imgElement = item.querySelector('img');
     artworks.push({
         id: item.getAttribute('data-artwork'),
         title: item.getAttribute('data-title'),
         details: item.getAttribute('data-details'),
         backgroundUrl: item.style.backgroundImage.slice(5, -2), // Extract background URL
-        thumbnailUrl: item.querySelector('img').getAttribute('src'),
+        thumbnailUrl: imgElement.getAttribute('src'),
         fullsizeUrl: item.getAttribute('data-fullsize-url')
     });
     item.onclick = () => showArtworkDetails(index); // Use index instead of ID
