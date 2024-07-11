@@ -6,14 +6,11 @@ let currentIndex = 0; // Index of the currently displayed image
 let artworks = []; // Array to store all artwork data
 
 document.querySelectorAll('.artwork').forEach((item, index) => {
-    const imgElement = item.querySelector('img');
     artworks.push({
         id: item.getAttribute('data-artwork'),
         title: item.getAttribute('data-title'),
         details: item.getAttribute('data-details'),
-        backgroundUrl: item.style.backgroundImage.slice(5, -2), // Extract background URL
-        thumbnailUrl: imgElement.getAttribute('src'),
-        fullsizeUrl: item.getAttribute('data-fullsize-url')
+        url: item.getAttribute('data-fullsize-url')
     });
     item.onclick = () => showArtworkDetails(index); // Use index instead of ID
 });
@@ -26,7 +23,7 @@ function showArtworkDetails(index) {
     var captionText = document.getElementById("caption");
 
     modal.style.display = "block";
-    modalImg.src = artwork.fullsizeUrl;
+    modalImg.src = artwork.url;
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
 }
 
@@ -53,59 +50,31 @@ window.onclick = function(event) {
     }
 };
 
-function preloadBackgroundImages() {
+function preloadImages() {
     let index = 0;
-    const loadBackgroundImage = () => {
+    const loadImage = () => {
         if (index < artworks.length) {
             const artwork = artworks[index];
             const img = new Image();
             img.onload = () => {
-                console.log(`Background ${artwork.title} loaded`);
-                const artworkDiv = document.querySelector(`.artwork[data-artwork="${artwork.id}"]`);
-                artworkDiv.classList.add("background-loaded");
-                artworkDiv.style.backgroundImage = `url(${artwork.backgroundUrl})`;
+                console.log(`${artwork.title} loaded`);
+                document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
                 index++;
-                loadBackgroundImage(); // Load the next background image after the current one is loaded
+                loadImage(); // Load the next image after the current one is loaded
             };
-            img.src = artwork.backgroundUrl;
-        } else {
-            // Start lazy loading thumbnails after all background images are loaded
-            lazyLoadThumbnails();
+            img.src = artwork.url;
         }
     };
-    loadBackgroundImage();
-}
-
-function lazyLoadThumbnails() {
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.getAttribute('data-src'); // Set the actual src attribute
-                img.onload = () => {
-                    img.removeAttribute('data-src'); // Remove data-src after loading
-                    img.parentElement.classList.add('loaded');
-                    img.parentElement.style.backgroundImage = 'none'; // Remove background image
-                };
-                observer.unobserve(img); // Stop observing after loading
-            }
-        });
-    });
-
-    document.querySelectorAll('.artwork img').forEach(img => {
-        observer.observe(img); // Start observing each thumbnail
-    });
+    loadImage();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    preloadBackgroundImages();
+    preloadImages();
 });
 
 const blurDivs = document.querySelectorAll(".artwork");
 blurDivs.forEach(div => {
     const img = div.querySelector("img");
-    img.setAttribute('data-src', img.src);
-    img.src = ''; // Remove src to trigger lazy loading later
     function loaded() {
         // show img
         div.classList.add("loaded");
