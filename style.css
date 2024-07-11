@@ -253,6 +253,11 @@ footer {
     background-size: 100%;
 }
 
+.modal-content.loading {
+    background-size: cover;
+    background-position: center;
+}
+
 .modal-content.loading::before {
     content: "";
     position: absolute;
@@ -272,10 +277,6 @@ footer {
     100% {
         background-color: rgba(255, 255, 255, 0.0);
     }
-}
-
-.modal.loaded::before {
-    content: none;
 }
 
 /* Caption of Modal Image */
