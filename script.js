@@ -1,8 +1,7 @@
 function openArtwork(artworkId) {
-    // Function to open a modal or new page displaying the artwork's full size and details
-    // This is a placeholder for functionality you'll need to implement based on your design
     alert("Open artwork details for " + artworkId);
 }
+
 let currentIndex = 0; // Index of the currently displayed image
 let artworks = []; // Array to store all artwork data
 
@@ -52,28 +51,40 @@ window.onclick = function(event) {
 };
 
 function preloadImages() {
-    artworks.forEach(artwork => {
-        const img = new Image();
-        img.onload = () => console.log(`${artwork.title} loaded`);
-        img.src = artwork.url;
-    });
+    let index = 0;
+    const loadImage = () => {
+        if (index < artworks.length) {
+            const artwork = artworks[index];
+            const img = new Image();
+            img.onload = () => {
+                console.log(`${artwork.title} loaded`);
+                document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
+                index++;
+                loadImage(); // Load the next image after the current one is loaded
+            };
+            img.src = artwork.url;
+        }
+    };
+    loadImage();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     preloadImages();
 });
 
-const blurDivs = document.querySelectorAll(".artwork")
-blurDivs.forEach(div =>{
-    const img = div.querySelector("img")
-    function loaded(){
+const blurDivs = document.querySelectorAll(".artwork");
+blurDivs.forEach(div => {
+    const img = div.querySelector("img");
+    function loaded() {
         // show img
-        div.classList.add("loaded")
+        div.classList.add("loaded");
+        // remove background image
+        div.style.backgroundImage = 'none';
     }
 
-    if (img.complete){
-        loaded()
+    if (img.complete) {
+        loaded();
     } else {
-        img.addEventListener("load",loaded)
+        img.addEventListener("load", loaded);
     }
-})
+});
