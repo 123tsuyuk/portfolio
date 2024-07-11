@@ -69,7 +69,7 @@ window.onclick = function(event) {
 
 function preloadImages() {
     let index = 0;
-    const loadImage = () => {
+    const loadImages = () => {
         if (index < artworks.length) {
             const artwork = artworks[index];
             const img = new Image();
@@ -77,12 +77,12 @@ function preloadImages() {
                 console.log(`${artwork.title} loaded`);
                 document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
                 index++;
-                loadImage(); // Load the next image after the current one is loaded
+                loadImages(); // Load the next image after the current one is loaded
             };
             img.src = artwork.thumbnailUrl;
         }
     };
-    loadImage();
+    loadImages();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -105,3 +105,30 @@ blurDivs.forEach(div => {
         img.addEventListener("load", loaded);
     }
 });
+
+
+function preloadImage() {
+    const loadImage = () => {
+            img.onload = () => {
+                document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
+            img.src = artwork.thumbnailUrl;
+        }
+    };
+    loadImage();
+}
+document.addEventListener('DOMContentLoaded', () => {
+    preloadImages();
+});
+const backgroundDetail = document.getElementById("modal-content");
+    const img = div.querySelector("img");
+    function loaded() {
+        // show img
+        div.classList.add("loaded");
+        // remove background image
+        div.style.backgroundImage = 'none';
+    }
+    if (img.complete) {
+        loaded();
+    } else {
+        img.addEventListener("load", loaded);
+    };
