@@ -25,9 +25,9 @@ function showArtworkDetails(index) {
     var captionText = document.getElementById("caption");
 
     // Set the background image of the modal to the thumbnail initially
-    modal.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
-    modal.style.backgroundSize = 'cover';
-    modal.style.backgroundPosition = 'center';
+    modalImg.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
+    // modalImg.style.backgroundSize = 'cover';
+    modalImg.style.backgroundPosition = 'center';
 
     modal.style.display = "block";
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;

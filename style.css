@@ -245,8 +245,12 @@ footer {
     overflow: auto; /* Enable scroll if needed */
     background-size: cover;
     background-position: center;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
   }
   
+
+
   /* Modal Content (Image) */
   .modal-content {
     margin: auto;
@@ -254,8 +258,16 @@ footer {
     height: auto;
     max-width: 80%;
     max-height: 80%;
+    background-size: 100%;
   }
   
+  .modal-content::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    animation: pulse 2s infinite;
+}
+
   /* Caption of Modal Image */
   #caption {
     margin: auto;
