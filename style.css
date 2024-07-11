@@ -119,6 +119,18 @@ main h2{
     transition: opacicty 200ms ease-in-out;
 }
 
+.artwork::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgb(255, 255, 255 ,0.3);
+}
+
+@keyframes pulse{
+    0%{
+        background-color: rgb(255, 255, 255 ,0.0);
+    }
+}
 .artwork::after {
     content: "";
     position: absolute;
