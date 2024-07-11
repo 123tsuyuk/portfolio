@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact form</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logo/icon.png" type="image/icon type">
-
 </head>
-
 <body>
     <header>
         <h1>Contact me</h1>
@@ -27,7 +24,12 @@
             <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
             <button type="submit">Send</button>
         </form>
-
+        <!-- Social and email links -->
+        <div class="contact-info">
+            <p>Follow me on Instagram: <a href="https://www.instagram.com/tsuyuko_" target="_blank">@tsuyuko_</a></p>
+            <p>Email me directly: <a href="mailto:tsuyuko9@gmail.com">tsuyuko9@gmail.com</a></p>
+        </div>
+        
         <script>
             document.getElementById('contactForm').addEventListener('submit', function (event) {
                 event.preventDefault();
@@ -42,12 +44,14 @@
                     },
                     body: JSON.stringify({ name, email, message })
                 })
-                    .then(response => response.text())
-                    .then(data => alert('Form submitted successfully!'))
-                    .catch(error => console.error('Error:', error));
+                .then(response => response.text())
+                .then(data => alert('Form submitted successfully!'))
+                .catch(error => console.error('Error:', error));
             });
         </script>
-
     </section>
-
+    <footer>
+        <p>&copy; 2024 Watanabe Tsuyuko</p>
+    </footer>
 </body>
+</html>
