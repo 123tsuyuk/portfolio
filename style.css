@@ -116,7 +116,7 @@ main h2{
 
 .artwork > img{
     opacity: 0;
-    transition: opacicty 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
 }
 
 .artwork::before{
