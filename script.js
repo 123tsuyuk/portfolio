@@ -50,41 +50,53 @@ window.onclick = function(event) {
     }
 };
 
-function preloadImages() {
+function preloadBackgroundImages() {
     let index = 0;
-    const loadImage = () => {
+    const loadBackgroundImage = () => {
         if (index < artworks.length) {
             const artwork = artworks[index];
             const img = new Image();
             img.onload = () => {
-                console.log(`${artwork.title} loaded`);
-                document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
+                console.log(`Background ${artwork.title} loaded`);
+                const artworkDiv = document.querySelector(`.artwork[data-artwork="${artwork.id}"]`);
+                artworkDiv.classList.add("background-loaded");
+                artworkDiv.style.backgroundImage = `url(${artwork.backgroundUrl})`;
                 index++;
-                loadImage(); // Load the next image after the current one is loaded
+                loadBackgroundImage(); // Load the next background image after the current one is loaded
             };
-            img.src = artwork.url;
+            img.src = artwork.backgroundUrl;
+        } else {
+            // Start lazy loading thumbnails after all background images are loaded
+            lazyLoadThumbnails();
         }
     };
-    loadImage();
+    loadBackgroundImage();
+}
+
+function lazyLoadThumbnails() {
+    document.querySelectorAll('.artwork img').forEach((img, index) => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    img.src = img.getAttribute('data-src'); // Set the actual src attribute
+                    img.onload = () => {
+                        img.removeAttribute('data-src'); // Remove data-src after loading
+                        img.parentElement.classList.add('loaded');
+                        img.parentElement.style.backgroundImage = 'none'; // Remove background image
+                    };
+                    observer.unobserve(img); // Stop observing after loading
+                }
+            });
+        });
+
+        observer.observe(img); // Start observing each thumbnail
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    preloadImages();
-});
-
-const blurDivs = document.querySelectorAll(".artwork");
-blurDivs.forEach(div => {
-    const img = div.querySelector("img");
-    function loaded() {
-        // show img
-        div.classList.add("loaded");
-        // remove background image
-        div.style.backgroundImage = 'none';
-    }
-
-    if (img.complete) {
-        loaded();
-    } else {
-        img.addEventListener("load", loaded);
-    }
+    document.querySelectorAll('.artwork img').forEach(img => {
+        img.setAttribute('data-src', img.src);
+        img.src = ''; // Remove src to trigger lazy loading later
+    });
+    preloadBackgroundImages();
 });
