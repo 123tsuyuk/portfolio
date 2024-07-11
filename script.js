@@ -28,6 +28,7 @@ function showArtworkDetails(index) {
     modalImg.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
     modalImg.style.backgroundSize = 'cover';
     modalImg.style.backgroundPosition = 'center';
+    modalImg.style.display = 'none'; // Hide the img tag initially
 
     modal.style.display = "block";
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
@@ -36,6 +37,7 @@ function showArtworkDetails(index) {
     const fullsizeImg = new Image();
     fullsizeImg.onload = () => {
         modalImg.src = artwork.fullsizeUrl;
+        modalImg.style.display = 'block'; // Show the img tag once the full-size image is loaded
         modalImg.style.backgroundImage = 'none'; // Remove the background image
     };
     fullsizeImg.src = artwork.fullsizeUrl;
