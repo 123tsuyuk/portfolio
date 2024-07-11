@@ -110,6 +110,15 @@ main h2{
     background-position: center;
 }
 
+.artwork.loaded > img{
+    opacity: 1;
+}
+
+.artwork > img{
+    opacity: 0;
+    transition: opacicty 200ms ease-in-out;
+}
+
 .artwork::after {
     content: "";
     position: absolute;

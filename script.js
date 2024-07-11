@@ -62,3 +62,18 @@ function preloadImages() {
 document.addEventListener('DOMContentLoaded', () => {
     preloadImages();
 });
+
+const blurDivs = document.querySelectorAll(".artwork")
+blurDivs.forEach(div =>{
+    const img = div.querySelector("img")
+    function loaded(){
+        // show img
+        div.classList.add("loaded")
+    }
+
+    if (img.complete){
+        loaded()
+    } else {
+        img.addEventListener("load",loaded)
+    }
+})
