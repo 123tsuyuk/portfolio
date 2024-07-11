@@ -25,18 +25,24 @@ function showArtworkDetails(index) {
     var captionText = document.getElementById("caption");
 
     // Set the background image of the modal to the thumbnail initially
-    modalImg.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
-    // modalImg.style.backgroundSize = 'cover';
-    modalImg.style.backgroundPosition = 'center';
+    modal.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
+    modal.style.backgroundSize = 'cover';
+    modal.style.backgroundPosition = 'center';
 
     modal.style.display = "block";
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
+
+    // Show the loading animation
+    modalImg.style.display = 'none';
+    modal.classList.remove('loaded');
+    modal.classList.add('loading');
 
     // Load the full-size image
     const fullsizeImg = new Image();
     fullsizeImg.onload = () => {
         modalImg.src = artwork.fullsizeUrl;
-        modal.style.backgroundImage = 'none'; // Remove the background image
+        modal.classList.remove('loading');
+        modal.classList.add('loaded');
         modalImg.style.display = 'block'; // Show the img tag once the full-size image is loaded
     };
     fullsizeImg.src = artwork.fullsizeUrl;
@@ -69,7 +75,7 @@ window.onclick = function(event) {
 
 function preloadImages() {
     let index = 0;
-    const loadImages = () => {
+    const loadImage = () => {
         if (index < artworks.length) {
             const artwork = artworks[index];
             const img = new Image();
@@ -77,12 +83,12 @@ function preloadImages() {
                 console.log(`${artwork.title} loaded`);
                 document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
                 index++;
-                loadImages(); // Load the next image after the current one is loaded
+                loadImage(); // Load the next image after the current one is loaded
             };
             img.src = artwork.thumbnailUrl;
         }
     };
-    loadImages();
+    loadImage();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -105,30 +111,3 @@ blurDivs.forEach(div => {
         img.addEventListener("load", loaded);
     }
 });
-
-
-function preloadImage() {
-    const loadImage = () => {
-            img.onload = () => {
-                document.querySelector(`.artwork[data-artwork="${artwork.id}"]`).classList.add("loaded");
-            img.src = artwork.thumbnailUrl;
-        }
-    };
-    loadImage();
-}
-document.addEventListener('DOMContentLoaded', () => {
-    preloadImages();
-});
-const backgroundDetail = document.getElementById("modal-content");
-    const img = backgroundDetail.querySelector("img");
-    function loaded() {
-        // show img
-        div.classList.add("loaded");
-        // remove background image
-        div.style.backgroundImage = 'none';
-    }
-    if (img.complete) {
-        loaded();
-    } else {
-        img.addEventListener("load", loaded);
-    };
