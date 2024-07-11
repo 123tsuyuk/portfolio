@@ -6,11 +6,13 @@ let currentIndex = 0; // Index of the currently displayed image
 let artworks = []; // Array to store all artwork data
 
 document.querySelectorAll('.artwork').forEach((item, index) => {
+    const imgElement = item.querySelector('img');
     artworks.push({
         id: item.getAttribute('data-artwork'),
         title: item.getAttribute('data-title'),
         details: item.getAttribute('data-details'),
-        url: item.getAttribute('data-fullsize-url')
+        thumbnailUrl: imgElement.getAttribute('src'),
+        fullsizeUrl: item.getAttribute('data-fullsize-url')
     });
     item.onclick = () => showArtworkDetails(index); // Use index instead of ID
 });
@@ -22,9 +24,21 @@ function showArtworkDetails(index) {
     var modalImg = document.getElementById("modalImage");
     var captionText = document.getElementById("caption");
 
+    // Set the background image of the modal to the thumbnail initially
+    modalImg.style.backgroundImage = `url(${artwork.thumbnailUrl})`;
+    modalImg.style.backgroundSize = 'cover';
+    modalImg.style.backgroundPosition = 'center';
+
     modal.style.display = "block";
-    modalImg.src = artwork.url;
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
+
+    // Load the full-size image
+    const fullsizeImg = new Image();
+    fullsizeImg.onload = () => {
+        modalImg.src = artwork.fullsizeUrl;
+        modalImg.style.backgroundImage = 'none'; // Remove the background image
+    };
+    fullsizeImg.src = artwork.fullsizeUrl;
 }
 
 function changeImage(step) {
