@@ -253,11 +253,25 @@ footer {
     background-size: 100%;
 }
 
-.modal.loading::before {
+.modal-content.loading::before {
     content: "";
     position: absolute;
     inset: 0;
     animation: pulse 2s infinite;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+    50% {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        background-color: rgba(255, 255, 255, 0.0);
+    }
 }
 
 .modal.loaded::before {

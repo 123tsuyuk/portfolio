@@ -43,6 +43,24 @@ function showArtworkDetails(index) {
     modalImg.classList.add('loading'); // Add loading class
 }
 
+// Function to close the modal
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+    var modal = document.getElementById("artworkModal");
+    modal.style.display = "none";
+    document.getElementById("modalImage").classList.remove('loading'); // Remove loading class when the modal is closed
+};
+
+// Function to close the modal if user clicks anywhere outside of the modal image
+window.onclick = function(event) {
+    var modal = document.getElementById("artworkModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.getElementById("modalImage").classList.remove('loading'); // Remove loading class when the modal is closed
+    }
+};
+
+
 function changeImage(step) {
     // Calculate new index
     let newIndex = currentIndex + step;
