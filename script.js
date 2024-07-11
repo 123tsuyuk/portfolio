@@ -76,7 +76,7 @@ function preloadImages() {
                 index++;
                 loadImage(); // Load the next image after the current one is loaded
             };
-            img.src = artwork.url;
+            img.src = artwork.thumbnailUrl;
         }
     };
     loadImage();
