@@ -168,63 +168,6 @@ main h2{
     margin-top: 10px;
 }
 
-#contact {
-    margin-top: 40px;
-}
-
-#contact form {
-    max-width: 600px;
-    margin: auto;
-}
-
-#contact label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#contact input, #contact textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #db6b5c;
-    font-size: medium;
-    font-family: 'Raleway';
-}
-
-#contact button {
-    background-color: #db6b5c;
-    color: #F3E9D2;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#contact button:hover {
-    background-color: #274B69;
-}
-
-.contact-info {
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-
-.contact-info a {
-    color: #db6b5c; /* Your theme color */
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #F3E9D2;
-}
 
 /* The Modal (background) */
 .modal {
@@ -250,33 +193,6 @@ footer {
     height: auto;
     max-width: 80%;
     max-height: 80%;
-    background-size: 100%;
-}
-
-.modal-content.loading {
-    background-size: cover;
-    background-position: center;
-}
-
-.modal-content.loading::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    animation: pulse 2s infinite;
-    background-size: cover;
-    background-position: center;
-}
-
-@keyframes pulse {
-    0% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
-    50% {
-        background-color: rgba(255, 255, 255, 0.3);
-    }
-    100% {
-        background-color: rgba(255, 255, 255, 0.0);
-    }
 }
 
 /* Caption of Modal Image */
@@ -400,6 +316,66 @@ footer {
         text-align: center;
     }
 }
+
+#contact {
+    margin-top: 40px;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: auto;
+}
+
+#contact label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #db6b5c;
+    font-size: medium;
+    font-family: 'Raleway';
+}
+
+#contact button {
+    background-color: #db6b5c;
+    color: #F3E9D2;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact button:hover {
+    background-color: #274B69;
+}
+
+.contact-info {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.contact-info a {
+    color: #db6b5c; /* Your theme color */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #F3E9D2;
+}
+
+
 
 .biography, .exhibitions {
     padding: 20px;

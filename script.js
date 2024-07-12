@@ -10,7 +10,8 @@ document.querySelectorAll('.artwork').forEach((item, index) => {
         id: item.getAttribute('data-artwork'),
         title: item.getAttribute('data-title'),
         details: item.getAttribute('data-details'),
-        url: item.getAttribute('data-fullsize-url')
+        url: item.getAttribute('data-fullsize-url'),
+        thumbnail: item.style.backgroundImage // Get the thumbnail image URL
     });
     item.onclick = () => showArtworkDetails(index); // Use index instead of ID
 });
@@ -22,9 +23,24 @@ function showArtworkDetails(index) {
     var modalImg = document.getElementById("modalImage");
     var captionText = document.getElementById("caption");
 
+    // Set the background image of the modal to the thumbnail
+    modal.style.backgroundImage = artwork.thumbnail;
+    modal.style.backgroundSize = 'cover'; // Ensure the background covers the modal
+
     modal.style.display = "block";
-    modalImg.src = artwork.url;
     captionText.innerHTML = `<strong>${artwork.title}</strong><br>${artwork.details}`;
+
+    // Hide the high-res image initially
+    modalImg.style.display = "none";
+
+    // Load the high-resolution image
+    var tempImg = new Image();
+    tempImg.onload = function() {
+        modalImg.src = artwork.url;
+        modalImg.style.display = "block"; // Show the high-res image once it's loaded
+        modal.style.backgroundImage = 'none'; // Remove the thumbnail background once high-res image is loaded
+    };
+    tempImg.src = artwork.url;
 }
 
 function changeImage(step) {
